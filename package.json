@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A folder structure to create an Elm app with routing working out of the box, as well as `.sass` and `.elm` files compilation **on save**, using a Bash script.",
   "scripts": {
-    "deploy": "cp -f index.html dist/index.html && cp -f -r assets dist/assets && cp -f -r css dist/css && cp -f -r js/ dist/js && surge -p dist/"
+    "deploy": "rm -rf dist && mkdir dist && cp -f index.html dist/index.html && cp -f -r assets dist/assets && cp -f -r css dist/css && cp -f -r js/ dist/js && surge -p dist/"
   },
   "dependencies": {},
   "devDependencies": {},

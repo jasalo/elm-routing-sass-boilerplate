@@ -1,6 +1,6 @@
 # Elm + Routing + SASS Boilerplate
 
-This is a folder structure to create an Elm app with routing working out of the box, as well as `.sass` and `.elm` files compilation **on save**, using a Bash script. It features a nice coloured output on your terminal to indicate whether your files were compiled or not.
+Basic folder structure to create Elm apps with routing (using [Hop](https://github.com/sporto/hop)) working out of the box, as well as a nice `.sass` + `.elm` _**compile on save**_ feature, using a Bash script. It features a nice coloured output on the  terminal to indicate whether your files were compiled or not.
 
 ## Requirements
 - Mac OS X, Linux or any app capable of running a bash script (`*.sh` files)
@@ -55,7 +55,7 @@ npm run deploy
 The script basically does the following:
 
 ```bash
-cp -f index.html dist/index.html && cp -f -r assets dist/assets && cp -f -r css dist/css && cp -f -r js/ dist/js && surge -p dist/
+rm -rf dist && mkdir dist && cp -f index.html dist/index.html && cp -f -r assets dist/assets && cp -f -r css dist/css && cp -f -r js/ dist/js && surge -p dist/
 ```
 
 If you want to add your own custom `xxxxxx.surge.sh` subdomain, just add a `-d xxxxxx.surge.sh` flag to the end of the npm script.
