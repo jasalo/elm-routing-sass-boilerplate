@@ -37,6 +37,7 @@ Most important folders are briefly described:
 
 ## Usage
 After installing all of the aforementioned requirements, follow these steps:
+
 1. Give execution permissions to `compile.sh` located on root. Simply do `chmod +x compile.sh` (use `sudo` only if necessary and with caution).
 2. Execute the script: `./compile.sh` This will compile all the necessary files and run a web server on **http://localhost:1234**
 3. Code!
