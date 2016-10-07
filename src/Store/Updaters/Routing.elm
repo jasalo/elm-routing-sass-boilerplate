@@ -18,15 +18,12 @@ update msg model =
   case msg of
     NavigateTo path ->
       let
-        route = str2route path
         command =
           -- First generate the URL using your config (`outputFromPath`).
           -- Then generate a command using Navigation.newUrl.
           Hop.outputFromPath hopConfig path |> Navigation.newUrl
-        -- Add other commands if you wish
-        cmds = Cmd.batch <| [ command, Cmd.fromMsg (RouteActivated route) ]
       in
-        ( model, cmds )
+        ( model, command )
 
     SetQuery query ->
       let

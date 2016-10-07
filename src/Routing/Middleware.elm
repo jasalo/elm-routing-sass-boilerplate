@@ -1,7 +1,6 @@
 module Routing.Middleware exposing (..)
 
 import Task
-
 import Dict
 import Navigation
 import UrlParser exposing ((</>))
@@ -10,6 +9,7 @@ import Hop.Types exposing (Config, Address, Query)
 import Store.Messages as Messages exposing (..)
 import Store.State exposing (..)
 import Routing.Routes exposing (..)
+import Util.Cmd as Cmd
 
 
 
@@ -23,9 +23,7 @@ Ex:
   3. "users"
 -}
 routes : UrlParser.Parser (Route -> a) a
-routes =
-  UrlParser.oneOf <|
-    List.map (\(route,parser,path) -> UrlParser.format route parser ) appRoutes
+routes = UrlParser.oneOf appRoutesMatchers
 
 {-|
 Router configuration.
@@ -84,5 +82,5 @@ Address is a record that has:
 -}
 urlUpdate : ( Route, Address ) -> Model -> ( Model, Cmd Msg )
 urlUpdate ( route, address ) model =
-  ( { model | route = route, address = address }, Cmd.none )
+  ( { model | route = route, address = address }, Cmd.map MRouting <| Cmd.fromMsg (RouteActivated model.route) )
 

@@ -39,8 +39,8 @@ pageView model =
   case model.route of
     HomeRoute -> Home.render model
     NotFoundRoute -> div [] [ h1 [] [ text "Page not found :(" ] ]
-    -- Useful for debugging:
-    -- _  -> todoView <| "«" ++ toString model.route ++ "» was not matched!"
+    -- Useful for debugging or unimplemented routes:
+    _  -> todoView <| "«" ++ toString model.route ++ "» hasn't been implemented!"
 
 todoView : String -> Html msg
 todoView txt =

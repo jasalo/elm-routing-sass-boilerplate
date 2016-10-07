@@ -1,14 +1,12 @@
 module Store.State exposing (..)
 
 import Array exposing (Array)
-
 import Hop
 import Hop.Types exposing (Config, Address, Query)
-
 import Store.Messages as Messages exposing (..)
 import Routing.Routes exposing (..)
-
 import Util.Cmd as Cmd
+import String as String
 
 -- MODEL
 
@@ -37,7 +35,7 @@ init ( route, address ) =
       address
       route
   , Cmd.batch <|
-      [ Cmd.map MRouting <| Cmd.fromMsg (NavigateTo <| route2str route)
+      [ Cmd.map MRouting <| Cmd.fromMsg (NavigateTo <| String.concat <| List.intersperse "/" address.path )
       -- Other commands you wish your app to init with
       ]
   )
