@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Author: Francisco Chaves (https://github.com/pachopepe)
+# Made for Bloom Consulting (https://github.com/Bloom-Consulting) - September 2016
+
 usage() { echo "Usage: $0 [-p <port>] <main-elm-file.elm>" 1>&2; exit 1; }
 
 port="1234"
